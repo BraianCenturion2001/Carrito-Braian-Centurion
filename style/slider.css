@@ -1,17 +1,33 @@
-.slider-contenedor{
-    margin: auto;
-    padding: auto;
-    width: 75%;
-    height: 400px;
-    overflow: hidden;
-    background: violet;
+.slider-contenedor {
+    width: 1000px;
     position: relative;
+    margin: auto;
+    padding: 30px;
 }
 
-.slider-contenedor li{
-    list-style: none;
+.slider-div {
+    display: none;
 }
 
-.slider-contenedor img{
-    height: 400px;
+img {
+    width: 100%;
 }
+
+.text {
+    background-color: rgba(0, 0, 0, .5);
+    top: 30px;
+    width: 500px;
+    height: 470px;
+    position: absolute; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.text p{
+    color: white;
+    font-size: 45px;
+    font-style: arial;
+}
+
+
