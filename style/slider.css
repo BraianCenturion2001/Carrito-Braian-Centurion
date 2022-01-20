@@ -1,0 +1,17 @@
+.slider-contenedor{
+    margin: auto;
+    padding: auto;
+    width: 75%;
+    height: 400px;
+    overflow: hidden;
+    background: violet;
+    position: relative;
+}
+
+.slider-contenedor li{
+    list-style: none;
+}
+
+.slider-contenedor img{
+    height: 400px;
+}

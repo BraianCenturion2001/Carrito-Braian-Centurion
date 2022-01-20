@@ -2,3 +2,27 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+    background: #f2f2f2;
+}
+
+.contenedor{
+    width: 100%;
+    margin: auto;
+}
+
+.cuerpo{
+    background: chartreuse;
+    text-align: center;
+}
+
+.footer{
+    height: auto;
+    text-align: center;
+    background-color: #201f1f;
+}
+
+.footer p{
+    color: white;
+}
