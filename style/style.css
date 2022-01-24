@@ -30,8 +30,22 @@ body{
 }
 
 .contenedor-productos{
-    margin: 10px;
-    width: 350px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.capsula{
+    margin: 30px;
+    width: 90%;
+    height: 430px;
+}
+
+.producto{
+    position: relative;
+    margin-left: 70px;
+    float: left;
+    width: 300px;
     border-radius: 15px;
     text-align: center;
 }
@@ -39,19 +53,19 @@ body{
     text-align: center;
 }
 
-.contenedor-productos:hover .precio-antes{
+.producto:hover .precio-antes{
     visibility: visible;
     transition: 1s;
     opacity: 1;
     height: auto;
 }
-.contenedor-productos:hover .descripcion-producto{
+.producto:hover .descripcion-producto{
     visibility: visible;
     transition: 1s;
     opacity: 1;
     height: auto;
 }
-.contenedor-productos:hover{
+.producto:hover{
     box-shadow: 4px 4px 9px #999;
     transition: .5s;
 }
@@ -82,3 +96,8 @@ body{
     padding-bottom: 10px;
 }
 
+.enlace-ampliado{
+    position: absolute;
+        width: 300px;
+        height: 100%;
+}
