@@ -6,6 +6,7 @@
     <link rel="icon" href="LOGO.ico" type="image/x-icon" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     <link href="style/slider.css" rel="stylesheet" type="text/css" />
+    <link href="js/carrito.js" type="text/javascript"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -30,7 +31,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="carrito.html">Carrito</a>
-                        </li>
+                        <span id="carritoCantidad" class="carritoNumber"></span>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Encuentra..." aria-label="Search">
@@ -56,9 +58,10 @@
                     <div class="precio-detalle"><p>$ 14.999</p></div>
                     <div class="cuotas"><p>12 cuotas de $ 1.070</p></div>
                     <div class="descripcion"><p>bla bla bla bla bla mucho texto describiendo este increible producto el cual deberias de comprar</p></div>
-                    <button type="button" class="btn btn-outline-primary">Agregar Carrito</button>
-                    <button type="button" class="btn btn-outline-success">Comprar Ahora</button>
+                    <button type="button" class="btn btn-outline-primary" id="1" onclick="comprarProducto(this.id, 'Agregar')">Agregar Carrito</button>
+                    <button type="button" class="btn btn-outline-success" id="1" onclick="comprarProducto(this.id, 'Comprar')">Comprar Ahora</button>
                 </div>
+                <script src="js/carrito.js"></script>
 
             </div>
 
