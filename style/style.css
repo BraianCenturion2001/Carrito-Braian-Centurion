@@ -205,3 +205,17 @@ input[type = "radio"]:checked ~ label{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
 }
+
+.carritoNumber{
+    background: orange;
+    border-radius: 0.8em;
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-left: 23px;
+    text-align: center;
+    margin-top: -20px;
+    width: 1.6em;
+    position: absolute;
+    float: left;
+}

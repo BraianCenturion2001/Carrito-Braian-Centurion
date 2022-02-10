@@ -30,6 +30,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="carrito.html">Carrito</a>
+                        <span id="carritoCantidad" class="carritoNumber"></span>
                         </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -56,10 +57,10 @@
                     <div class="precio-detalle"><p>$ 2.999</p></div>
                     <div class="cuotas"><p>12 cuotas de $ 249</p></div>
                     <div class="descripcion"><p>bla bla bla bla bla mucho texto describiendo este increible producto el cual deberias de comprar</p></div>
-                    <button type="button" class="btn btn-outline-primary">Agregar Carrito</button>
-                    <button type="button" class="btn btn-outline-success">Comprar Ahora</button>
+                    <button type="button" class="btn btn-outline-primary" id="2" onclick="comprarProducto(this.id, 'mondongo')">Agregar Carrito</button>
+                    <button type="button" class="btn btn-outline-success" id="2" onclick="comprarProducto(this.id, 'Comprar')">Comprar Ahora</button>
                 </div>
-
+                <script src="js/carrito.js"></script>
             </div>
 
         </div>

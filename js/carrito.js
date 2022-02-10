@@ -31,23 +31,14 @@ productos=[
         }
 ];
 
-carrito = [];
-
-//sessionStorage.setItem('id', 'valor');
-//sessionStorage.getItem('id') 
+setInterval('mostrarCarrito()', 800) //Cada 0,8 segundos revisa el carrito
 
 //Agrega el producto al carrito y lo lleva directamente a carrito.html
 function comprarProducto(idProducto, clase){
     encontrarYAgregarProducto(idProducto)
 
-    if (clase=="Agregar"){
-
-    } else if (clase=="Comprar"){
+    if (clase=="Comprar"){
         //window.location.assign("carrito.html"); //Te redirecciona a carrito. html
-    }
-
-    if (carrito.length>0){ //Si el carrito no esta vacio
-        mostrarCarrito()
     }
     
 }
@@ -55,23 +46,35 @@ function comprarProducto(idProducto, clase){
 //Recorre el carrito y busca el producto por Id, si lo encuentra, aumenta su cantidad, sino lo añade y deja la cantidad en 1
 function encontrarYAgregarProducto(idProdu){
     var encontrado = false;
+
+    var carrito = sessionStorage.getItem('carro');
+    carrito = JSON.parse(carrito);
+
     for (var producto in carrito){
         if (carrito[producto].id == idProdu){
             encontrado = true;
 
-            if (encontrado) { //Si esta en el carrito solo agrega una cantidad
-                carrito[producto].cantidad +=1;
-            }
+            // MODIFICA LA CANTIDAD --->  carrito[producto].cantidad +=1;
         }
     }
 
     if (!encontrado){ //Si no esta en el carrito lo agrega
         carrito.push({id:idProdu, cantidad:1})
     }
+
+    sessionStorage.setItem('carro', JSON.stringify(carrito));
+
 }
 
 //Muestra la cantidad de objetos que hay en el carrito al lado del link "Carrito"
 function mostrarCarrito(){
-    document.getElementById('carritoCantidad').innerHTML = carrito.length
+
+    var carrito = sessionStorage.getItem('carro');
+    carrito = JSON.parse(carrito);
+    
+    if (carrito.length>0){ //Si el carrito no esta vacio
+        document.getElementById('carritoCantidad').innerHTML = carrito.length
+    }
+    
 }
 
