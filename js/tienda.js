@@ -1,9 +1,10 @@
 const items = document.querySelector("#items");
 const tienda = document.querySelector('#carrito');
 const total = document.querySelector('#total');
-const botonVaciar = document.querySelector('#boton-vaciar');
 
 var carrito = traerCarrito() //Carrito
+
+console.log(carrito)
 
 if (carrito.length>0){ //Si el carrito tiene un item, hace el resto
 
@@ -22,7 +23,7 @@ function imprimirFuncion(carroImprimir) {
     carroImprimir.forEach((productoActual) =>{
         // Estructura
         const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-4');
+        miNodo.classList.add('card', 'col-sm-3');
         // Body
         const miNodoCardBody = document.createElement('div');
         miNodoCardBody.classList.add('card-body');
@@ -32,7 +33,7 @@ function imprimirFuncion(carroImprimir) {
         miNodoTitle.textContent = productoActual.titulo;
         // Imagen
         const miNodoImagen = document.createElement('img');
-        miNodoImagen.classList.add('img-fluid');
+        miNodoImagen.classList.add('card-img-top');
         miNodoImagen.setAttribute('src', productoActual.imagen);
         // Precio
         const miNodoPrecio = document.createElement('p');
@@ -82,6 +83,7 @@ function imprimirTienda(carroImprimir){
         miBoton.textContent = 'X';
         miBoton.style.marginLeft = '1rem';
         miBoton.dataset.item = item;
+        miBoton.setAttribute('marcador', item.id);
         miBoton.addEventListener('click', borrarItemCarrito);
         // Mezclamos nodos
         miNodo.appendChild(miBoton);
@@ -91,7 +93,18 @@ function imprimirTienda(carroImprimir){
     total.textContent = precioTotal;
 }
 
-function borrarItemCarrito(){
+function borrarItemCarrito(evento){
+
+    idEliminar = (evento.target.getAttribute('marcador'))
+
+    carrito = carrito.filter((item) => item.id !== idEliminar);
+
+    sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
+
+    imprimirFuncion(carrito) //Actualizamos el listado de objetos
+    imprimirTienda(carrito) //Actualizamos los precios
+
+    mostrarCarrito()
 
 }
 
@@ -131,6 +144,11 @@ function vaciarCarrito(){
     // Limpiamos los productos guardados
     carrito = [];
 
+    mostrarCarrito()
+    
     sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
+
+    imprimirFuncion(carrito) //Actualizamos el listado de objetos
+    imprimirTienda(carrito) //Actualizamos los precios
 }
 
