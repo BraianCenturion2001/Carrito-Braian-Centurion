@@ -37,7 +37,6 @@ body{
 }
 
 .footer p{
-    margin: 10px;
     color: white;
 }
 
@@ -218,4 +217,45 @@ input[type = "radio"]:checked ~ label{
     width: 1.6em;
     position: absolute;
     float: left;
+}
+
+
+.tienda{
+    width: auto;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem;
+    border: 3px;
+    position: relative;
+}
+
+.imagen-tienda{
+    float: left;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 15%;
+    background-color: rgb(241, 241, 241);
+}
+
+.ul-tienda{
+    list-style-type: none;
+    display: flex;
+}
+
+li, .ul-tienda{
+    width: 100%;
+}
+
+p, .ul-tienda{
+    padding-top: 25px;
+}
+
+.boton-tienda{
+    float: right;
+    margin-top: 20px;
+}
+
+.boton-mas-menos {
+    margin-top: 20px;
 }

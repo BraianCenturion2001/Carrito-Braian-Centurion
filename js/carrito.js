@@ -1,7 +1,7 @@
 productos=[
         {
             "id": 1,
-            "title": "Almohada Dakimakura BRAIAN CENTURION",
+            "title": "Almohada BRAIAN CENTURION",
             "precio": 15000,
             "imagen": "images/PRODUCTO-ALMOHADA.png"
         },
@@ -85,7 +85,9 @@ function mostrarCarrito(){
     var carrito = traerCarrito()
     
     if (carrito.length>0){ //Si el carrito no esta vacio
-        document.getElementById('carritoCantidad').innerHTML = carrito.length
+        document.getElementById('carritoCantidad').innerHTML = carrito.length;
+    } else { //Si esta vacio borra el contenido
+        document.getElementById('carritoCantidad').textContent = '';
     }
     
 }

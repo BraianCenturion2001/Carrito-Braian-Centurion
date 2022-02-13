@@ -40,15 +40,19 @@
       </nav>
 
       <div class="tienda">
-        <div id="items" class="col-sm-8 row"></div>
+        <div id="items" class="col-sm-8 row">
+          <!--Elementos del carrito -->
+        </div>
         <div class="carritoPrecios">
-          <h4>Carrito</h4>
+          <h2>Carrito</h2>
           <div id="carrito">
-              <!-- Elementos del carrito -->
+              <!-- Precios del carrito -->
               <ul id="carrito" class="list-group"></ul>
               <hr>
           </div>
-          <p class="text-left">Total: $<span id="total"></span></p>
+          <br>
+          <h4>Total: <span id="total"></span></h4>
+          <br>
           <button onclick="vaciarCarrito()" class="btn btn-danger">Vaciar</button>
         </div>
       </div>

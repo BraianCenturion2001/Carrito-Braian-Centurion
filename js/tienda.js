@@ -6,24 +6,16 @@ var carrito = traerCarrito() //Carrito
 
 console.log(carrito)
 
-if (carrito.length>0){ //Si el carrito tiene un item, hace el resto
+imprimirTienda(carrito) //Imprime los precios
 
-    imprimirFuncion(carrito) //Actualizamos el listado de objetos
-    imprimirTienda(carrito) //Actualizamos los precios
-
-} else { //Sino mostrara un mensaje
-
-    alert("EL CARRITO ESTA VACIO")
-
-}
-
-function imprimirFuncion(carroImprimir) {
+//imprimirFuncion(carrito) ANTIGUO IMPRIMIR
+/*function imprimirFuncion(carroImprimir) {
     items.textContent = '';
 
     carroImprimir.forEach((productoActual) =>{
         // Estructura
         const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-3');
+        miNodo.classList.add('card', 'col-md-3');
         // Body
         const miNodoCardBody = document.createElement('div');
         miNodoCardBody.classList.add('card-body');
@@ -41,13 +33,13 @@ function imprimirFuncion(carroImprimir) {
         miNodoPrecio.textContent = productoActual.cantidad+"x $"+productoActual.precio;
         // Boton Sumar
         const miNodoBotonMas = document.createElement('button');
-        miNodoBotonMas.classList.add('btn', 'btn-info', 'btn-sm');
+        miNodoBotonMas.classList.add('btn', 'btn-info', 'mx-2');
         miNodoBotonMas.textContent = '+';
         miNodoBotonMas.setAttribute('marcador', productoActual.id);
         miNodoBotonMas.addEventListener('click', aumentarCantidad);
         // Boton Restar
         const miNodoBotonMenos = document.createElement('button');
-        miNodoBotonMenos.classList.add('btn', 'btn-primary', 'btn-sm');
+        miNodoBotonMenos.classList.add('btn', 'btn-primary', 'mx-1');
         miNodoBotonMenos.textContent = ' - ';
         miNodoBotonMenos.setAttribute('marcador', productoActual.id);
         if (!((productoActual.cantidad-1)==0)){ //Esto evita dejar la cantidad en 0
@@ -63,34 +55,84 @@ function imprimirFuncion(carroImprimir) {
         items.appendChild(miNodo);
     })
 
-}
+}*/
 
 function imprimirTienda(carroImprimir){
     tienda.textContent = '';
-    precioTotal = 0;
 
-    carroImprimir.forEach(item =>{
-        precioUnidad = (item.cantidad * item.precio)
-        precioTotal = precioTotal + precioUnidad
+    if (carrito.length>0){ //Si el carrito no esta vacio lo imprime
 
-        // Creamos el nodo del item del carrito
-        const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-        miNodo.textContent = 'PRODUCTO: '+item.titulo+' ('+item.cantidad+') - $'+precioUnidad;
-        // Boton de borrar
-        const miBoton = document.createElement('button');
-        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-        miBoton.textContent = 'X';
-        miBoton.style.marginLeft = '1rem';
-        miBoton.dataset.item = item;
-        miBoton.setAttribute('marcador', item.id);
-        miBoton.addEventListener('click', borrarItemCarrito);
-        // Mezclamos nodos
-        miNodo.appendChild(miBoton);
-        tienda.appendChild(miNodo);
-    })
+        precioTotal = 0;
 
-    total.textContent = precioTotal;
+        carroImprimir.forEach(item =>{
+            precioUnidad = (item.cantidad * item.precio)
+            precioTotal = precioTotal + precioUnidad
+
+            const miNodo = document.createElement('ul');
+            miNodo.classList.add('ul-tienda');
+
+            const liImagen = document.createElement('li');
+            const liTexto = document.createElement('li');
+            const liMasMenos = document.createElement('li');
+            const liBoton = document.createElement('li');
+            // Texto del Producto
+            const miNodoTexto = document.createElement('p');
+            miNodoTexto.classList.add('mx-3');
+            miNodoTexto.textContent = item.titulo+' ('+item.cantidad+') - $'+precioUnidad;
+            // Boton de borrar
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'boton-tienda');
+            miBoton.textContent = 'X';
+            miBoton.dataset.item = item;
+            miBoton.setAttribute('marcador', item.id);
+            miBoton.addEventListener('click', borrarItemCarrito);
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('mx-3', 'imagen-tienda');
+            miNodoImagen.setAttribute('src', item.imagen);
+            // Boton Sumar
+            const miNodoBotonMas = document.createElement('button');
+            miNodoBotonMas.classList.add('btn', 'btn-primary', 'mx-2', 'boton-mas-menos');
+            miNodoBotonMas.textContent = '+';
+            miNodoBotonMas.setAttribute('marcador', item.id);
+            miNodoBotonMas.addEventListener('click', aumentarCantidad);
+            // Boton Restar
+            const miNodoBotonMenos = document.createElement('button');
+            miNodoBotonMenos.classList.add('btn', 'btn-danger', 'mx-1', 'boton-mas-menos');
+            miNodoBotonMenos.textContent = ' - ';
+            miNodoBotonMenos.setAttribute('marcador', item.id);
+            if (!((item.cantidad-1)==0)){ //Esto evita dejar la cantidad en 0
+                miNodoBotonMenos.addEventListener('click', restarCantidad);
+            }
+            // Mezclamos nodos
+
+            liImagen.appendChild(miNodoImagen);
+            liTexto.appendChild(miNodoTexto);
+            liMasMenos.appendChild(miNodoBotonMas);
+            liMasMenos.appendChild(miNodoBotonMenos);
+            liBoton.appendChild(miBoton);
+
+            miNodo.appendChild(liImagen);
+            miNodo.appendChild(liTexto);
+            miNodo.appendChild(liMasMenos)
+            miNodo.appendChild(liBoton);
+
+            tienda.appendChild(miNodo);
+        })
+
+        total.textContent = '$'+precioTotal;
+
+    } else { //Si esta vacio, alerta
+
+        //Creamos el cartel
+        const miNodoCarritoVacioCartel = document.createElement('h3');
+        miNodoCarritoVacioCartel.textContent = 'Ups! Parece que tu carrito está vacio';
+
+        //Lo imprimimos
+        tienda.appendChild(miNodoCarritoVacioCartel)
+
+        total.textContent = '$-';
+    }
 }
 
 function borrarItemCarrito(evento){
@@ -101,7 +143,6 @@ function borrarItemCarrito(evento){
 
     sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
 
-    imprimirFuncion(carrito) //Actualizamos el listado de objetos
     imprimirTienda(carrito) //Actualizamos los precios
 
     mostrarCarrito()
@@ -120,7 +161,6 @@ function aumentarCantidad(evento){
 
     sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
 
-    imprimirFuncion(carrito) //Actualizamos el listado de objetos
     imprimirTienda(carrito) //Actualizamos los precios
 
 }
@@ -136,7 +176,6 @@ function restarCantidad(evento){
 
     sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
 
-    imprimirFuncion(carrito) //Actualizamos el listado de objetos
     imprimirTienda(carrito) //Actualizamos los precios
 }
 
@@ -148,7 +187,6 @@ function vaciarCarrito(){
     
     sessionStorage.setItem('carro', JSON.stringify(carrito)); //Seteamos el carrito
 
-    imprimirFuncion(carrito) //Actualizamos el listado de objetos
     imprimirTienda(carrito) //Actualizamos los precios
 }
 
