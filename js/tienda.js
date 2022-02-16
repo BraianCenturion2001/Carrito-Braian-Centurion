@@ -2,61 +2,6 @@ const items = document.querySelector("#items");
 const tienda = document.querySelector('#carrito');
 const total = document.querySelector('#total');
 
-var carrito = traerCarrito() //Carrito
-
-console.log(carrito)
-
-imprimirTienda(carrito) //Imprime los precios
-
-//imprimirFuncion(carrito) ANTIGUO IMPRIMIR
-/*function imprimirFuncion(carroImprimir) {
-    items.textContent = '';
-
-    carroImprimir.forEach((productoActual) =>{
-        // Estructura
-        const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-md-3');
-        // Body
-        const miNodoCardBody = document.createElement('div');
-        miNodoCardBody.classList.add('card-body');
-        // Titulo
-        const miNodoTitle = document.createElement('h5');
-        miNodoTitle.classList.add('card-title');
-        miNodoTitle.textContent = productoActual.titulo;
-        // Imagen
-        const miNodoImagen = document.createElement('img');
-        miNodoImagen.classList.add('card-img-top');
-        miNodoImagen.setAttribute('src', productoActual.imagen);
-        // Precio
-        const miNodoPrecio = document.createElement('p');
-        miNodoPrecio.classList.add('card-text');
-        miNodoPrecio.textContent = productoActual.cantidad+"x $"+productoActual.precio;
-        // Boton Sumar
-        const miNodoBotonMas = document.createElement('button');
-        miNodoBotonMas.classList.add('btn', 'btn-info', 'mx-2');
-        miNodoBotonMas.textContent = '+';
-        miNodoBotonMas.setAttribute('marcador', productoActual.id);
-        miNodoBotonMas.addEventListener('click', aumentarCantidad);
-        // Boton Restar
-        const miNodoBotonMenos = document.createElement('button');
-        miNodoBotonMenos.classList.add('btn', 'btn-primary', 'mx-1');
-        miNodoBotonMenos.textContent = ' - ';
-        miNodoBotonMenos.setAttribute('marcador', productoActual.id);
-        if (!((productoActual.cantidad-1)==0)){ //Esto evita dejar la cantidad en 0
-            miNodoBotonMenos.addEventListener('click', restarCantidad);
-        }
-        // Insertamos
-        miNodoCardBody.appendChild(miNodoImagen);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoPrecio);
-        miNodoCardBody.appendChild(miNodoBotonMas);
-        miNodoCardBody.appendChild(miNodoBotonMenos);
-        miNodo.appendChild(miNodoCardBody);
-        items.appendChild(miNodo);
-    })
-
-}*/
-
 function imprimirTienda(carroImprimir){
     tienda.textContent = '';
 
@@ -78,7 +23,7 @@ function imprimirTienda(carroImprimir){
             // Texto del Producto
             const miNodoTexto = document.createElement('p');
             miNodoTexto.classList.add('mx-3');
-            miNodoTexto.textContent = item.titulo+' ('+item.cantidad+') - $'+precioUnidad;
+            miNodoTexto.textContent = item.titulo+'  BRAIAN CENTURION ('+item.cantidad+') - $'+precioUnidad;
             // Boton de borrar
             const miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'boton-tienda');
@@ -190,3 +135,6 @@ function vaciarCarrito(){
     imprimirTienda(carrito) //Actualizamos los precios
 }
 
+var carrito = traerCarrito() //Carrito
+
+imprimirTienda(carrito) //Imprime los precios

@@ -30,38 +30,45 @@ body{
 }
 
 .footer{
-    padding: 10px;
+    width: 100%;
+    height: 85px;
     text-align: center;
     background-color: #201f1f;
     letter-spacing: 0.1em;
+    clear: both;
+    bottom: 0;
 }
 
 .footer p{
     color: white;
+    padding: 30px;
 }
 
 .contenedor-productos{
     width: 100%;
+    padding: 3rem;
     height: auto;
     text-align: center;
 }
 
+.contenedor-productos a{
+    text-decoration: none;
+}
+
 .capsula{
-    margin: 30px;
-    width: 90%;
-    height: 430px;
+    text-align: center;
+    width: 350px;
+    height: 450px;
+    float: left;
+    margin: 15px;
 }
 
 .producto{
-    position: relative;
-    margin-left: 70px;
     float: left;
+    height: auto;
     width: 300px;
     border-radius: 15px;
-    text-align: center;
-}
-.info-producto{
-    text-align: center;
+    margin: 1.5rem;
 }
 
 .producto:hover .precio-antes{
@@ -243,11 +250,11 @@ input[type = "radio"]:checked ~ label{
     display: flex;
 }
 
-li, .ul-tienda{
+.ul-tienda li{
     width: 100%;
 }
 
-p, .ul-tienda{
+.ul-tienda p{
     padding-top: 25px;
 }
 
@@ -256,6 +263,6 @@ p, .ul-tienda{
     margin-top: 20px;
 }
 
-.boton-mas-menos {
+.boton-mas-menos{
     margin-top: 20px;
 }

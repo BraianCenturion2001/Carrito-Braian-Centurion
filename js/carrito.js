@@ -1,39 +1,57 @@
 productos=[
         {
             "id": 1,
-            "title": "Almohada BRAIAN CENTURION",
+            "title": "Almohada",
             "precio": 15000,
-            "imagen": "images/PRODUCTO-ALMOHADA.png"
+            "imagen": "images/PRODUCTO-ALMOHADA.png",
+            "precio_antes": "20.450",
+            "descripcion": "Dakimakura de BRAIAN CENTURION",
+            "enlace": "producto-almohada.html"
         },
         {
             "id": 2,
-            "title": "Taza BRAIAN CENTURION",
+            "title": "Taza",
             "precio": 3000,
-            "imagen": "images/PRODUCTO-TAZA.png"
+            "imagen": "images/PRODUCTO-TAZA.png",
+            "precio_antes": 5.999,
+            "descripcion": "Taza con logo BC",
+            "enlace": "producto-taza.html"
         },
         {
             "id": 3,
-            "title": "Camiseta BRAIAN CENTURION",
+            "title": "Camiseta",
             "precio": 5000,
-            "imagen": "images/PRODUCTO-CAMISETA.png"
+            "imagen": "images/PRODUCTO-CAMISETA.png",
+            "precio_antes": 6.999,
+            "descripcion": "Camiseta con logo BC",
+            "enlace": "producto-camiseta.html"
         },
         {
             "id": 4,
-            "title": "Gorra BRAIAN CENTURION",
+            "title": "Gorra",
             "precio": 2000,
-            "imagen": "images/PRODUCTO-GORRA.png"
+            "imagen": "images/PRODUCTO-GORRA.png",
+            "precio_antes": 3.999,
+            "descripcion": "Gorra con logo BC",
+            "enlace": "producto-gorra.html"
         },
         {
             "id": 5,
-            "title": "Cartuchera BRAIAN CENTURION",
+            "title": "Cartuchera",
             "precio": 3000,
-            "imagen": "images/PRODUCTO-CARTUCHERA.png"
+            "imagen": "images/PRODUCTO-CARTUCHERA.png",
+            "precio_antes": 4.999,
+            "descripcion": "Cartuchera con logo BC",
+            "enlace": "producto-cartuchera.html"
         },
         {
             "id": 6,
-            "title": "Funda Iphone BRAIAN CENTURION",
+            "title": "Funda Iphone",
             "precio": 8000,
-            "imagen": "images/PRODUCTO-FUNDA.png"
+            "imagen": "images/PRODUCTO-FUNDA.png",
+            "precio_antes": 10.999,
+            "descripcion": "Funda para Iphone con logo BC",
+            "enlace": "producto-funda.html"
         }
 ];
 
