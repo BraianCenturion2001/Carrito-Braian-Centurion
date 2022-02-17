@@ -56,6 +56,5 @@ function listarProductos(productosImprimir){
     });
 }
 
-console.log(productos)
-
 listarProductos(productos);
+

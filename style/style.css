@@ -266,3 +266,31 @@ input[type = "radio"]:checked ~ label{
 .boton-mas-menos{
     margin-top: 20px;
 }
+
+
+.buscar{
+    width: 207px;
+	background: #fff;
+    position: absolute;
+    top: 295px;
+    right: 24px;
+    z-index: 2;
+}
+
+.buscar_tabla{
+    width: 100%;
+}
+
+.buscar_tabla tr td{
+    border-top: 1px black;
+    border-bottom: 1px black;
+    border-style: groove;
+}
+
+.buscar_tabla tr td a{
+    text-decoration: none;
+	font-size: 18px;
+	color: #737373;
+    display: block;
+	border: 2px solid #fff;
+}

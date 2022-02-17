@@ -2,6 +2,7 @@ const items = document.querySelector("#items");
 const tienda = document.querySelector('#carrito');
 const total = document.querySelector('#total');
 
+//Muestra todos los producto agregados al carrito
 function imprimirTienda(carroImprimir){
     tienda.textContent = '';
 
@@ -80,6 +81,7 @@ function imprimirTienda(carroImprimir){
     }
 }
 
+//Elimina ese producto especifico del carrito
 function borrarItemCarrito(evento){
 
     idEliminar = (evento.target.getAttribute('marcador'))
@@ -94,6 +96,7 @@ function borrarItemCarrito(evento){
 
 }
 
+//Aumenta la cantidad de ese producto en el carrito
 function aumentarCantidad(evento){
 
     idSumar = (evento.target.getAttribute('marcador'))
@@ -110,6 +113,7 @@ function aumentarCantidad(evento){
 
 }
 
+//Resta la cantidad de ese producto en el carrito
 function restarCantidad(evento){
     idRestar = (evento.target.getAttribute('marcador'))
 
@@ -124,6 +128,7 @@ function restarCantidad(evento){
     imprimirTienda(carrito) //Actualizamos los precios
 }
 
+//Elimina todos los productos del carrito
 function vaciarCarrito(){
     // Limpiamos los productos guardados
     carrito = [];

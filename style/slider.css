@@ -31,7 +31,7 @@ img {
 }
 
 .fade {
-    -webkit-animation: fade 2s forwards, modonormal 3s infinite 3s;
+    -webkit-animation: fade 2s forwards, modonormal 1.5s infinite 1.5s;
 }
 
 @-webkit-keyframes fade {

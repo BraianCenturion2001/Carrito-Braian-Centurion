@@ -55,7 +55,7 @@ productos=[
         }
 ];
 
-setInterval('mostrarCarrito()', 500) //Cada 0,5 segundos revisa el carrito
+setInterval('mostrarCarrito()', 500) //Cada 0,5 segundos revisa el carrito y actualiza el contador
 
 //Agrega el producto al carrito y lo lleva directamente a carrito.html
 function comprarProducto(idProducto, clase){
@@ -110,7 +110,7 @@ function mostrarCarrito(){
     
 }
 
-
+//Devuelve el carrito
 function traerCarrito() {
     var carrito = sessionStorage.getItem('carro');
     carrito = JSON.parse(carrito);
